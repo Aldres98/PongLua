@@ -89,6 +89,24 @@ function love.update(dt)
                 ball.dy = math.random(10, 150)
             end
         end
+        if ball.y <= 0 then
+            ball.y = 0
+            ball.dy = -ball.dy
+        end
+
+        if ball.y >= VIRTUAL_HEIGHT - 4 then
+            ball.y = VIRTUAL_HEIGHT - 4
+            ball.dy = -ball.dy
+        end
+
+        if ball.x <= 5 then
+            player2Score = player2Score + 1
+            ball:reset()
+        elseif ball.x >= VIRTUAL_WIDTH - 5 then
+            player1Score = player1Score + 1
+            ball:reset()
+        end
+
     end
 
 
